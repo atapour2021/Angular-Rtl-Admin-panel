@@ -1,0 +1,34 @@
+$menu_item_color: white;
+$menu_item_background_hover: #564ab1;
+
+.active {
+  background-color: $menu_item_background_hover;
+  #sidebar__icon {
+    color: $menu_item_background_hover;
+  }
+
+  .sidebar__text {
+    color: $menu_item_background_hover;
+  }
+}
+
+.a__menu__item {
+  font-size: 12px !important;
+
+  #sidebar__icon {
+    color: $menu_item_color;
+  }
+
+  .sidebar__text {
+    color: $menu_item_color;
+  }
+
+  &:hover {
+    background-color: $menu_item_background_hover;
+  }
+}
+
+.left__icon {
+  color: $menu_item_color;
+  margin-right: auto;
+}

@@ -1,0 +1,22 @@
+<div class="row">
+  <mat-card class="h__300 m-1 col-12">
+    <canvas class="h__300" #lineCanvas></canvas>
+  </mat-card>
+  <mat-card class="card col-md-7 col-sm-12 m-1">
+    <canvas #barCanvas></canvas>
+  </mat-card>
+  <mat-card class="card col-md-4 col-sm-12 m-1">
+    <canvas #doughnutCanvas></canvas>
+  </mat-card>
+  <mat-card class="card col-12 m-1">
+    <div class="ag-theme-balham" style="height: 550px">
+      <app-grid
+        *ngIf="AgLoad"
+        [ColumnDefs]="this.ColumnDefs"
+        [RowData]="this.RowData"
+        [IsColumnsToFit]="true"
+      >
+      </app-grid>
+    </div>
+  </mat-card>
+</div>
