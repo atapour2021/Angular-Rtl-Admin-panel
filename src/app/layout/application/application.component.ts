@@ -1,61 +1,44 @@
 import { BreakpointObserver } from '@angular/cdk/layout';
-import { Component, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
+import { TranslateService } from '@ngx-translate/core';
 import { delay } from 'rxjs/operators';
+import { Base } from 'src/app/sheard/base/base.class';
 import { NavItem } from './menu-list-item/nav-item';
 
 @Component({
   selector: 'app-application',
   templateUrl: './application.component.html',
-  styleUrls: ['./application.component.scss'],
+  styleUrls: ['./application.component.scss']
 })
-export class ApplicationComponent {
+export class ApplicationComponent extends Base implements AfterViewInit {
   @ViewChild(MatSidenav)
   sidenav!: MatSidenav;
+  _observer!: BreakpointObserver;
 
   navItems: NavItem[] = [
     {
       displayName: 'Dashboard',
       iconName: 'fas fa-tachometer-alt',
-      route: 'dashboard',
+      route: 'dashboard'
     },
     {
       displayName: 'Profile',
       iconName: 'fas fa-id-card-alt',
-      route: 'profile',
-    },
-
-    // sample tree menu
-    {
-      displayName: 'Root',
-      iconName: 'fas fa-id-card-alt',
-      route: 'root',
-      children: [
-        {
-          displayName: 'Child 1',
-          iconName: 'fas fa-id-card-alt',
-          route: 'child 1',
-        },
-        {
-          displayName: 'Child 2',
-          iconName: 'fas fa-id-card-alt',
-          route: 'child 2',
-          children: [
-            {
-              displayName: 'Child 2_1',
-              iconName: 'fas fa-id-card-alt',
-              route: 'child 2_1',
-            },
-          ],
-        },
-      ],
-    },
+      route: 'profile'
+    }
   ];
 
-  constructor(private observer: BreakpointObserver) {}
+  constructor(
+    translate: TranslateService,
+    private observer: BreakpointObserver
+  ) {
+    super(translate);
+    this._observer = observer;
+  }
 
-  ngAfterViewInit() {
-    this.observer
+  ngAfterViewInit(): void {
+    this._observer
       .observe(['(max-width: 800px)'])
       .pipe(delay(1))
       .subscribe((res) => {

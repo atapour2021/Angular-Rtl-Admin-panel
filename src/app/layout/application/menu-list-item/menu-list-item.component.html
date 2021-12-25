@@ -9,7 +9,7 @@
   class="a__menu__item"
 >
   <i [class]="item.iconName" class="mx-1" id="sidebar__icon"></i>
-  <span class="sidebar__text">{{ item.displayName }}</span>
+  <span class="sidebar__text">{{ item.displayName | translate }}</span>
   <span class="left__icon" *ngIf="item.children && item.children.length">
     <i
       class="fas fa-angle-up"
@@ -18,7 +18,7 @@
     </i>
   </span>
 </a>
-<div *ngIf="expanded" style="margin-right: 10px;">
+<div *ngIf="expanded" style="margin-right: 10px">
   <app-menu-list-item
     *ngFor="let child of item.children"
     [item]="child"

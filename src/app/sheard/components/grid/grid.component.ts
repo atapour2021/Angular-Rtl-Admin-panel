@@ -1,16 +1,20 @@
 import { Component, Input } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
+import { Base } from '../../base/base.class';
 
 @Component({
   selector: 'app-grid',
   templateUrl: './grid.component.html',
-  styleUrls: ['./grid.component.scss'],
+  styleUrls: ['./grid.component.scss']
 })
-export class GridComponent {
+export class GridComponent extends Base {
   @Input() ColumnDefs: any;
   @Input() RowData: any;
   @Input() IsColumnsToFit!: boolean;
 
-  constructor() {}
+  constructor(translate: TranslateService) {
+    super(translate);
+  }
 
   gridApi: any;
   gridColumnApi: any;

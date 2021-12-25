@@ -5,7 +5,9 @@ import {
   OnInit,
   ViewChild
 } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import { Chart, ChartConfiguration, registerables } from 'chart.js';
+import { Base } from 'src/app/sheard/base/base.class';
 import { GridColumnsDto, GridListDataDto } from '../../dto';
 import { DashboardService } from '../../service/dashboard.service';
 Chart.register(...registerables);
@@ -15,7 +17,7 @@ Chart.register(...registerables);
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
-export class DashboardComponent implements AfterViewInit, OnInit {
+export class DashboardComponent extends Base implements AfterViewInit, OnInit {
   @ViewChild('barCanvas') private barCanvas!: ElementRef;
   @ViewChild('doughnutCanvas') private doughnutCanvas!: ElementRef;
   @ViewChild('lineCanvas') private lineCanvas!: ElementRef;
@@ -29,7 +31,11 @@ export class DashboardComponent implements AfterViewInit, OnInit {
   AgLoad!: boolean;
   _dashboardService!: DashboardService;
 
-  constructor(private dashboardService: DashboardService) {
+  constructor(
+    translate: TranslateService,
+    private dashboardService: DashboardService
+  ) {
+    super(translate);
     this._dashboardService = dashboardService;
   }
 

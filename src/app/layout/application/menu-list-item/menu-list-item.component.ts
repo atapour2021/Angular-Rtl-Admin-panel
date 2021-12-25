@@ -3,10 +3,12 @@ import {
   state,
   style,
   transition,
-  trigger,
+  trigger
 } from '@angular/animations';
 import { Component, HostBinding, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
+import { Base } from 'src/app/sheard/base/base.class';
 import { NavItem } from './nav-item';
 import { NavService } from './nav.service';
 
@@ -21,17 +23,27 @@ import { NavService } from './nav.service';
       transition(
         'expanded <=> collapsed',
         animate('225ms cubic-bezier(0.4,0.0,0.2,1)')
-      ),
-    ]),
-  ],
+      )
+    ])
+  ]
 })
-export class MenuListItemComponent implements OnInit {
+export class MenuListItemComponent extends Base implements OnInit {
   expanded!: boolean;
   @HostBinding('attr.aria-expanded') ariaExpanded = this.expanded;
   @Input() item!: NavItem;
   @Input() depth: number | undefined;
 
-  constructor(public _navService: NavService, public router: Router) {
+  _navService!: NavService;
+  _router!: Router;
+
+  constructor(
+    translate: TranslateService,
+    public navService: NavService,
+    public router: Router
+  ) {
+    super(translate);
+    this._navService = navService;
+    this._router = router;
     if (this.depth === undefined) {
       this.depth = 0;
     }
