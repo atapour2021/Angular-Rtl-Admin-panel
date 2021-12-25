@@ -3,7 +3,7 @@ import { ChartConfiguration } from 'chart.js';
 import { GridColumnsDto, GridListDataDto } from '../dto';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class DashboardService {
   ColumnDefs: GridColumnsDto[] = [
@@ -12,13 +12,13 @@ export class DashboardService {
       headerName: 'Provider',
       field: 'Provider',
       sortable: true,
-      filter: true,
+      filter: true
     },
     {
       headerName: 'ProviderArtNo',
       field: 'ProviderArtNo',
       sortable: true,
-      filter: true,
+      filter: true
     },
     { headerName: 'Brand', field: 'Brand', sortable: true, filter: true },
     { headerName: 'Price', field: 'Price', sortable: true, filter: true },
@@ -26,8 +26,8 @@ export class DashboardService {
       headerName: 'BuyAccount',
       field: 'BuyAccount',
       sortable: true,
-      filter: true,
-    },
+      filter: true
+    }
   ];
   RowData: GridListDataDto[] = [
     {
@@ -36,7 +36,7 @@ export class DashboardService {
       ProviderArtNo: '1Yu',
       Brand: 'Apple',
       Price: 7810.23,
-      BuyAccount: '123',
+      BuyAccount: '123'
     },
     {
       ArtNo: '101',
@@ -44,7 +44,7 @@ export class DashboardService {
       ProviderArtNo: '1Yu',
       Brand: 'Samsung',
       Price: 2310.23,
-      BuyAccount: '123',
+      BuyAccount: '123'
     },
     {
       ArtNo: '102',
@@ -52,7 +52,7 @@ export class DashboardService {
       ProviderArtNo: '1Yu',
       Brand: 'Apple',
       Price: 7810.23,
-      BuyAccount: '123',
+      BuyAccount: '123'
     },
     {
       ArtNo: '103',
@@ -60,7 +60,7 @@ export class DashboardService {
       ProviderArtNo: '1Yu',
       Brand: 'Intex',
       Price: 5810.23,
-      BuyAccount: '123',
+      BuyAccount: '123'
     },
     {
       ArtNo: '100',
@@ -68,7 +68,7 @@ export class DashboardService {
       ProviderArtNo: '1Yu',
       Brand: 'Apple',
       Price: 7810.23,
-      BuyAccount: '123',
+      BuyAccount: '123'
     },
     {
       ArtNo: '101',
@@ -76,7 +76,7 @@ export class DashboardService {
       ProviderArtNo: '1Yu',
       Brand: 'Samsung',
       Price: 2310.23,
-      BuyAccount: '123',
+      BuyAccount: '123'
     },
     {
       ArtNo: '102',
@@ -84,7 +84,7 @@ export class DashboardService {
       ProviderArtNo: '1Yu',
       Brand: 'Apple',
       Price: 7810.23,
-      BuyAccount: '123',
+      BuyAccount: '123'
     },
     {
       ArtNo: '103',
@@ -92,8 +92,8 @@ export class DashboardService {
       ProviderArtNo: '1Yu',
       Brand: 'Intex',
       Price: 5810.23,
-      BuyAccount: '123',
-    },
+      BuyAccount: '123'
+    }
   ];
   barChartConfig: ChartConfiguration = {
     type: 'bar',
@@ -109,7 +109,7 @@ export class DashboardService {
             'rgba(255, 206, 86, 0.2)',
             'rgba(75, 192, 192, 0.2)',
             'rgba(153, 102, 255, 0.2)',
-            'rgba(255, 159, 64, 0.2)',
+            'rgba(255, 159, 64, 0.2)'
           ],
           borderColor: [
             'rgba(255,99,132,1)',
@@ -117,15 +117,15 @@ export class DashboardService {
             'rgba(255, 206, 86, 1)',
             'rgba(75, 192, 192, 1)',
             'rgba(153, 102, 255, 1)',
-            'rgba(255, 159, 64, 1)',
+            'rgba(255, 159, 64, 1)'
           ],
-          borderWidth: 1,
-        },
-      ],
+          borderWidth: 1
+        }
+      ]
     },
     options: {
-      scales: {},
-    },
+      scales: {}
+    }
   };
   doughnutChartConfig: ChartConfiguration = {
     type: 'doughnut',
@@ -140,18 +140,18 @@ export class DashboardService {
             'rgba(255, 99, 132, 0.2)',
             'rgba(54, 162, 235, 0.2)',
             'rgba(255, 206, 86, 0.2)',
-            'rgba(75, 192, 192, 0.2)',
+            'rgba(75, 192, 192, 0.2)'
           ],
           hoverBackgroundColor: [
             '#FFCE56',
             '#FF6384',
             '#36A2EB',
             '#FFCE56',
-            '#FF6384',
-          ],
-        },
-      ],
-    },
+            '#FF6384'
+          ]
+        }
+      ]
+    }
   };
   lineChartConfig: ChartConfiguration = {
     type: 'line',
@@ -167,7 +167,7 @@ export class DashboardService {
         'August',
         'September',
         'November',
-        'December',
+        'December'
       ],
       datasets: [
         {
@@ -190,11 +190,11 @@ export class DashboardService {
           pointRadius: 1,
           pointHitRadius: 10,
           data: [65, 59, 80, 81, 56, 55, 40, 10, 5, 50, 10, 15],
-          spanGaps: false,
-        },
-      ],
-    },
-  }
+          spanGaps: false
+        }
+      ]
+    }
+  };
 
   getGridColumns(): GridColumnsDto[] {
     return this.ColumnDefs;
